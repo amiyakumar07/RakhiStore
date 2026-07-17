@@ -1,0 +1,14 @@
+{
+  "name": "rakhi-store",
+  "version": "1.0.0",
+  "description": "RakhiStore e-commerce website",
+  "scripts": {
+    "dev": "vite --port 3000 --open",
+    "start": "vite --port 3000 --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

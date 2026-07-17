@@ -1,0 +1,545 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RakhiAura | User Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#eae7e7",
+                    "surface-bright": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#5b403d",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#af4440",
+                    "secondary-fixed": "#ffdea3",
+                    "secondary-fixed-dim": "#fdbc13",
+                    "on-tertiary-fixed-variant": "#832423",
+                    "inverse-primary": "#ffb4ac",
+                    "primary": "#a20513",
+                    "on-primary-container": "#ffe0dd",
+                    "inverse-surface": "#303030",
+                    "surface-tint": "#b91d20",
+                    "on-tertiary-fixed": "#410004",
+                    "tertiary": "#8f2d2b",
+                    "surface-container": "#f0eded",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "on-background": "#1b1b1c",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#6b4d00",
+                    "on-primary-fixed": "#410003",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ffe0dd",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-fixed-variant": "#93000e",
+                    "surface": "#fcf9f8",
+                    "secondary": "#7a5900",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "tertiary-fixed": "#ffdad7",
+                    "secondary-container": "#fdbc13",
+                    "primary-container": "#c62828",
+                    "outline": "#8f706c",
+                    "background": "#fcf9f8",
+                    "outline-variant": "#e4beba",
+                    "surface-variant": "#e5e2e1",
+                    "surface-dim": "#dcd9d9",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#261900",
+                    "on-surface": "#1b1b1c",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "button-text": ["Poppins"],
+                    "display-lg": ["Playfair Display"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "button-text": ["15px", {"lineHeight": "1", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(252, 249, 248, 0.8);
+        }
+        .luxury-shadow {
+            box-shadow: 0 20px 30px -10px rgba(31, 31, 31, 0.06);
+        }
+        .sidebar-active {
+            color: #a20513;
+            background-color: #ffdad6;
+            font-weight: 600;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4beba;
+            border-radius: 10px;
+        }
+        .product-card-hover:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 25px 40px -15px rgba(31, 31, 31, 0.1);
+        }
+    </style>
+<script src="shared.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary/10">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">RakhiStore</div>
+<nav class="hidden lg:flex items-center space-x-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Shop</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Rakhi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Gift Hampers</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Personalized</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Sweets</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Corporate</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-transform active:scale-95 duration-200">search</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-transform active:scale-95 duration-200">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-transform active:scale-95 duration-200">shopping_bag</button>
+<button class="material-symbols-outlined text-primary border-b-2 border-primary pb-1 transition-transform active:scale-95 duration-200">person</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-lg flex gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 hidden md:block">
+<div class="sticky top-28 space-y-2">
+<div class="px-4 py-6 mb-4">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-1" id="welcome-username">Namaste, Aryan</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Silver Member since 2022</p>
+</div>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl sidebar-active transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md">My Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-body-md">My Orders</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-body-md">Wishlist</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-body-md">Saved Addresses</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body-md">Rewards</span>
+</a>
+<div class="pt-4 mt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-error hover:bg-error-container/20 transition-all duration-300" href="#" id="logout-btn">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Dashboard Content -->
+<section class="flex-grow space-y-lg">
+<!-- Rewards and Stats Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Rewards Balance Card -->
+<div class="lg:col-span-2 bg-secondary-container rounded-[24px] p-md flex flex-col justify-between luxury-shadow overflow-hidden relative min-h-[220px]">
+<div class="z-10">
+<span class="font-label-caps text-label-caps text-on-secondary-fixed uppercase tracking-widest bg-secondary-fixed px-3 py-1 rounded-full">Exclusive</span>
+<h3 class="font-display-lg text-display-lg text-on-secondary-container mt-4">2,450 <span class="text-headline-sm">Points</span></h3>
+<p class="font-body-md text-on-secondary-container/80 mt-2">You're only 550 points away from Gold Membership!</p>
+</div>
+<div class="z-10 mt-6 flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button-text text-button-text hover:scale-105 transition-transform duration-300 shadow-md">Redeem Now</button>
+<button class="border-2 border-secondary text-secondary px-6 py-2.5 rounded-full font-button-text text-button-text hover:bg-secondary/5 transition-colors duration-300">View History</button>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-12 -bottom-12 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[240px]">auto_awesome</span>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md luxury-shadow flex flex-col justify-between border border-outline-variant/10">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-4">Account Summary</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Active Orders</span>
+<span class="font-bold text-primary bg-primary-fixed px-3 py-0.5 rounded-full">02</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Wishlist Items</span>
+<span class="font-bold text-on-surface">12</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Saved Addresses</span>
+<span class="font-bold text-on-surface">03</span>
+</div>
+</div>
+</div>
+<a class="text-primary font-button-text text-button-text flex items-center gap-1 hover:underline mt-6" href="#">
+                        Complete Profile <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Recent Orders Section -->
+<div class="space-y-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Orders</h3>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" href="#">View All Orders</a>
+</div>
+<div class="bg-surface-container-lowest rounded-[24px] luxury-shadow overflow-hidden border border-outline-variant/10">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 bg-surface-container-low/30">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Order Details</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Date</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Total</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of an exquisite designer rakhi featuring intricate gold thread work, vibrant red silk, and a central semi-precious stone. The lighting is soft and warm, capturing the luxurious texture of the festive piece against a minimalist cream background. The aesthetic is clean, premium, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQrvyaHBST02pPtAFOkWUt4EV60q6roYSpw-ZCEsvLGzeeIi2AO2_KZDltNyqRV0TtMhBzuv5_Uas29REKUoIiCaFZuAqdjPfBypQFjdpLc6xVsh7tLLIe1exvqhiEQdN6OmA9ayjgqLT4_xkeD1MpefYP4mvctsDjV3MkkajiWUu4NeLkX0OQT1s3vxAFeOLvgqUDf5K_Y9LP-nmKqXYvsEdX2K4P2drcgGVpvFoJSmsyXao0bHCqfFcMK2TpOgIY_wcW3qtQ930">
+</div>
+<div>
+<p class="font-bold text-on-surface">Royal Zardosi Rakhi Set</p>
+<p class="text-xs text-on-surface-variant">#RA-92834</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-body-sm">Aug 12, 2024</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[11px] font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Shipped
+                                        </span>
+</td>
+<td class="px-6 py-5 font-semibold text-on-surface">₹2,499</td>
+<td class="px-6 py-5">
+<button class="text-primary hover:text-primary-container font-button-text text-[13px] underline">Track</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A curated luxury gift hamper box for Raksha Bandhan, containing artisanal sweets, a designer rakhi, and a personalized greeting card. The box is elegantly styled with high-end gold foil accents and premium packaging textures. The scene is shot from a top-down perspective on a pristine marble surface with soft atmospheric lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtncF8It9sRADHZ-rVpNxLHCC_TG9PcO7-HisuHTjWX2k3mdrkbwGplHtp_UvBXMqypFgcLenOC5uD_iUGlQAmxg8rNCdVVzLqen9quKLjedh2M-HCkmt9WpNwS08OzsTMRswwcF2528Ok7Z5iawt9iAifQ506S0dspgql4zZi9axikSiJHVjgPm4-yjoK-n9scFwGqSj67PJIcl78Ka0skzejx-UjrphSyE4Kisx6X05iezAMRo9VJ4ftneKrU_Xh89ZrDGifya4">
+</div>
+<div>
+<p class="font-bold text-on-surface">Signature Hamper</p>
+<p class="text-xs text-on-surface-variant">#RA-91042</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-body-sm">Aug 05, 2024</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Delivered
+                                        </span>
+</td>
+<td class="px-6 py-5 font-semibold text-on-surface">₹4,850</td>
+<td class="px-6 py-5">
+<button class="text-primary hover:text-primary-container font-button-text text-[13px] underline">Re-order</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Recommended for You Carousel -->
+<div class="space-y-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recommended for You</h3>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest rounded-[24px] overflow-hidden luxury-shadow product-card-hover transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute top-4 left-4 z-10 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-caps text-[10px] uppercase">New Arrival</div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a contemporary silver-plated rakhi with minimalist geometric patterns. The rakhi is laid out on a soft, blush-toned linen fabric with gentle shadows creating depth. The lighting is bright and ethereal, emphasizing the clean lines and premium metallic finish of the jewelry piece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3RmJMznN4lF6UHf-8-AjssmIHhQFk2K58uJfCirA0gFLagen9ND6yKGRg1SLX9Ot0j_CC2iGjreRaqonDrTxfOpvO6TndPg-v_mUHF98dRSIxhvwSok2dY86vqnDPFmF-OQH44_qK_MJYFvGVK_r-Is4z9r-V5_wzsiikv998pgkSZdYQ_-2JwH0DXfq5gaRt2Aj3LwzyCgz8-lmIVP92OepdQsZq1F7uxayuhiQ5k_DfgAuy6OBaMHgBwaUcO2Tukef1vRm37gQ">
+<button class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-2 flex-grow">
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Handcrafted Silver</p>
+<h4 class="font-headline-sm text-[20px] text-on-surface">Sterling Silver Infinity Rakhi</h4>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">₹1,899</span>
+<span class="text-on-surface-variant/60 line-through text-sm">₹2,499</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<button class="w-full border-2 border-primary text-primary py-3 rounded-xl font-button-text text-button-text hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Bag</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-lowest rounded-[24px] overflow-hidden luxury-shadow product-card-hover transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute top-4 left-4 z-10 bg-primary text-on-primary px-3 py-1 rounded-full font-label-caps text-[10px] uppercase">Limited Edition</div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious collection of traditional Indian sweets arranged artistically in a gold-plated tiered server. The sweets are decorated with edible silver leaf and dried rose petals. The scene is warm and inviting, with festive diya lighting in the background creating a soft, celebratory bokeh effect." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKlykottKrKKMqAnluh4FNYefmTD5328hrdS6T0yZNd239N3_MrE7vxU_KAbuBnStFIa5JB0Xuvju--vBpDNdCDswvWRSYNwSswTnkTcN7UqVNSaIgs3hmYO_8JV9PjsqSPogU7N_3_tAHXvFoHCtgrwCV_rw5fn0hwkNyIkrjW30hkWAn2TLll9uWQxcQnv1EMgD-8QjA5r_BYtrwcu1YkMiDumoqZdkQRO4WZwO5hTz8Ln59ai1a-nwGT_lS3EnYk1PNXEr_h4">
+<button class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-2 flex-grow">
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Artisanal Sweets</p>
+<h4 class="font-headline-sm text-[20px] text-on-surface">Royal Saffron Delight Box</h4>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">₹3,250</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<button class="w-full border-2 border-primary text-primary py-3 rounded-xl font-button-text text-button-text hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Bag</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest rounded-[24px] overflow-hidden luxury-shadow product-card-hover transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A personalized wooden gift box with an engraved name and festive motifs. Inside the box, a silk-thread rakhi and a small jar of premium nuts are visible. The setting is an elegant living room with soft window light, casting gentle shadows across the wooden texture and highlighting the craftsmanship of the engraving." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjDabmU09Xeqk0sz7p0IQwTuDDrbjLT79yNTli9LLfTmlxtmk2OBTT8fBR7xzF5PBQ4up__pkGJxwNFtv9KQxlkt-SPrSUBK9jvyOScyM6zUushQmFoJ85cdp0UsjG8Q2WXLP_0ChvAwkNTOkAnsSshdFmPJulZu8B-PpLJgzCmT9mzjwspkvsdnWbS8jkaESf-5S1VTwdapDD2KejIMIgGLZb9bnXlzhSLXhzUXEH8cQQk-Pn2WTgNsFg7ZYUa4wh3SQlR11gqBc">
+<button class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-2 flex-grow">
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Personalized Gifts</p>
+<h4 class="font-headline-sm text-[20px] text-on-surface">Custom Engraved Wooden Box</h4>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">₹1,499</span>
+<span class="text-on-surface-variant/60 line-through text-sm">₹1,999</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<button class="w-full border-2 border-primary text-primary py-3 rounded-xl font-button-text text-button-text hover:bg-primary hover:text-on-primary transition-all duration-300">Add to Bag</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter px-margin-desktop py-xl max-w-container-max mx-auto">
+<div class="md:col-span-2">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary mb-4">RakhiStore</div>
+<p class="text-on-surface-variant text-body-sm max-w-xs mb-6">
+                    Celebrating the eternal bond of siblings with handcrafted rakhis and premium festive hampers delivered worldwide.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-secondary hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-secondary hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined">camera</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-headline-sm text-[16px] text-secondary mb-6">Collections</h5>
+<ul class="space-y-4">
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Traditional Rakhis</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Gold &amp; Silver</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="browse-collection.html">Gift Hampers</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="browse-collection.html">Personalized</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline-sm text-[16px] text-secondary mb-6">Customer Service</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="about-us.html">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="contact-us.html">Contact Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="privacy-policy.html">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="terms-conditions.html">Terms & Conditions</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="refund-policy.html">Refund & Cancellation</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h5 class="font-headline-sm text-[16px] text-secondary mb-6">Stay Inspired</h5>
+<p class="text-body-sm text-on-surface-variant mb-4">Subscribe for festive updates and exclusive rewards.</p>
+<div class="flex gap-2">
+<input class="flex-grow bg-surface border border-outline-variant rounded-xl px-4 py-2 focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition-all" placeholder="Email Address" type="email">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-button-text text-button-text shadow-sm hover:scale-105 transition-transform">Join</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 py-6 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 RakhiStore. All rights reserved. Crafted with Tradition.</p>
+<div class="flex gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="privacy-policy.html">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="terms-conditions.html">Terms & Conditions</a>
+</div>
+</div>
+</footer>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="firebase-auth.js"></script>
+
+<!-- Interactive Scripts -->
+<script>
+        // ─── Firebase Auth Guard ───
+        // Show a loading skeleton until auth state resolves
+        document.documentElement.style.visibility = 'hidden';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Listen for auth state (fires immediately if cached)
+            onAuthStateChange(firebaseUser => {
+                if (!firebaseUser) {
+                    // Not logged in – redirect to login
+                    window.location.replace('login-signup.html');
+                    return;
+                }
+
+                // Reveal page
+                document.documentElement.style.visibility = '';
+
+                // Sync localStorage for shared.js compatibility
+                localStorage.setItem('rakhi_user', firebaseUser.email);
+
+                // ── Welcome username ──
+                const welcomeText = document.getElementById('welcome-username');
+                if (welcomeText) {
+                    const displayName = firebaseUser.displayName
+                        || firebaseUser.email.split('@')[0];
+                    const formatted  = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+                    welcomeText.textContent = `Namaste, ${formatted}`;
+                }
+
+                // ── Render Order History ──
+                const orders = JSON.parse(localStorage.getItem('rakhi_orders') || '[]');
+                const orderTableBody = document.querySelector('table tbody');
+                if (orderTableBody && orders.length > 0) {
+                    orderTableBody.innerHTML = '';
+                    orders.forEach(order => {
+                        const row = document.createElement('tr');
+                        row.className = 'border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors';
+                        row.innerHTML = `
+                            <td class="px-6 py-5 font-semibold text-primary">#${order.id}</td>
+                            <td class="px-6 py-5 text-on-surface-variant">${order.date}</td>
+                            <td class="px-6 py-5">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase tracking-wider">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse"></span>
+                                    ${order.status}
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 font-semibold text-on-surface">${order.total}</td>
+                            <td class="px-6 py-5 text-right">
+                                <button class="text-secondary font-button-text text-sm hover:underline"
+                                    onclick="window.location.href='track-order.html?orderId=${order.id}'">Track</button>
+                            </td>
+                        `;
+                        orderTableBody.appendChild(row);
+                    });
+                }
+
+                // ── Logout button ──
+                const logoutBtn = document.getElementById('logout-btn');
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('rakhi_user');
+                        localStorage.removeItem('rakhi_orders');
+                        await firebaseSignOut();
+                    });
+                }
+            });
+        });
+
+        // Micro-interactions for buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('mousedown', () => button.classList.add('scale-95'));
+                button.addEventListener('mouseup',   () => button.classList.remove('scale-95'));
+                button.addEventListener('mouseleave',() => button.classList.remove('scale-95'));
+            });
+
+            // Sidebar active state
+            const sidebarLinks = document.querySelectorAll('aside a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebarLinks.forEach(l => {
+                        l.classList.remove('sidebar-active');
+                        l.classList.add('text-on-surface-variant');
+                    });
+                    link.classList.add('sidebar-active');
+                    link.classList.remove('text-on-surface-variant');
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

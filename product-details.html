@@ -1,0 +1,514 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RakhiAura | Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=Poppins:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface": "#1b1b1c",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-high": "#eae7e7",
+                    "secondary": "#7a5900",
+                    "tertiary": "#8f2d2b",
+                    "primary-container": "#c62828",
+                    "outline": "#8f706c",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "on-primary-fixed": "#410003",
+                    "inverse-surface": "#303030",
+                    "on-secondary-fixed": "#261900",
+                    "secondary-fixed": "#ffdea3",
+                    "on-tertiary-container": "#ffe0dd",
+                    "secondary-container": "#fdbc13",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#b91d20",
+                    "surface-container-highest": "#e5e2e1",
+                    "primary": "#a20513",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#93000e",
+                    "on-primary-container": "#ffe0dd",
+                    "on-tertiary-fixed-variant": "#832423",
+                    "surface-container": "#f0eded",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-secondary-container": "#6b4d00",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "secondary-fixed-dim": "#fdbc13",
+                    "outline-variant": "#e4beba",
+                    "tertiary-container": "#af4440",
+                    "primary-fixed": "#ffdad6",
+                    "inverse-primary": "#ffb4ac",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1b1c",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#5b403d",
+                    "on-tertiary-fixed": "#410004",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#5d4200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-desktop": "40px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-caps": ["Inter"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "button-text": ["Poppins"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "button-text": ["15px", {"lineHeight": "1", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .product-card-shadow {
+            box-shadow: 0 20px 30px rgba(31, 31, 31, 0.05);
+        }
+        .luxury-input:focus {
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4beba;
+            border-radius: 10px;
+        }
+    </style>
+<script src="shared.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/80 glass-nav docked full-width top-0 sticky z-50 border-b border-outline-variant/30 shadow-sm h-20">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="home.html">RakhiStore</a>
+<div class="hidden lg:flex items-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Shop</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="browse-collection.html">Rakhi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Gift Hampers</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Personalized</a>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative" onclick="window.location.href='shopping-cart.html'">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="window.location.href='user-dashboard.html'">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left: Luxury Image Gallery -->
+<div class="lg:col-span-7 space-y-md">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden product-card-shadow group bg-surface-container-lowest">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up professional photography of a luxury handcrafted Rakhi with intricate gold filigree, pearls, and red silk threads. The Rakhi is placed on a soft ivory silk cushion. Soft, warm cinematic lighting highlights the metallic sheen of the gold and the texture of the threads, creating an atmosphere of heritage and premium elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQkIlj5BNPGkdL39MyS78cnfhIRJW3EBzi2jGP1LWNLSYeifjEklk3k17JiYeh1GQrKuTwjC2_YtEtH-NcDsRtesXYqsI4RHbOVOr5QS3i2FZia0wx9huKYrx6RPHKMls071_hCD-Ew0yUrUO8dup8CAus3FOQASa7cjG-58D3668sga_OJ_Y2Etd6h31z4bM4lAb8HC6021lY_MYwfBUpN00lkVSL7fzB4gZiO7ReRdn1i7WpgCdikc65Ra1y4oSn0onRn_PM-Y0">
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-primary text-on-primary font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-widest">Limited Edition</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-widest">Best Seller</span>
+</div>
+<!-- 360 Preview Indicator -->
+<button class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md text-primary font-label-caps text-[10px] px-4 py-2 rounded-full flex items-center gap-2 shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">360</span>
+                        VIEW 360° INTERACTIVE
+                    </button>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-md">
+<div class="aspect-square rounded-lg overflow-hidden border-2 border-primary cursor-pointer transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="High-resolution detail of the central gold motif of a luxury Rakhi, showcasing fine craftsmanship and embedded crystals against a cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8vbaxcOe7oMCsmtY-K40R2xQ9wIHcbTsyJvl9wT34GA5PTyJkI2vBPm4e1d4ySh7kY_l23TOASaIyHPkv8rSC6AOxuSBW55fsb22Rc7h4C3e_dLpaCOAnbPUkihWTLttUOtosqnz5es72w4rvEAxrTS2bOOz7-hBBwas99quXVnJsQiPVR-bOVG6pDg3SPNpN6XBQjtd8J7b4vGV7-K6zPIg3sFomHUqqAMTw-n0wLmsUW7hceQuXdN3GNdJPCB3GhQM4R-R1SVk">
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/30 cursor-pointer transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="A lifestyle shot of a premium Rakhi being tied on a wrist, with blurred festive decor in the background, warm light mode colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBA4XkoEDlzI6PIApAdVN3RdVOqdfJuRh7ntWtqctoQIO7I_K4jt-TTUEURsa5oXESEzfHkb07lPLD8T5m1DR42pWyCNPEb5S8Y5QQQ16Hhoqs7zKGLQjZYJ0ZRMReZuFcGxd8Xm4obwXqeaf4516JWHa4KTyBi7IGMmWJJogGnkt8rCb-kLrUt7Kzrp8SrXGWz0_sw4fAmVnXtbS0GbjoMV3ZjmKuBPdLcIyrE8UkDXi3BCMEQU7jWXsWJle9b88tX1TE6Auiudk">
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/30 cursor-pointer transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="Luxury packaging for a Rakhi gift set, featuring a red velvet box with gold foil stamping and a handwritten personalized card." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvfticpvuoyv-5dLH_o9U7ttfw12IZKO2FnAo9hVDsyFQVD9e9AwFynRIEp4UjfHA75BEMwmN60Dsom5YqBDtLQA18rC1nS4OnPZVOfYhQCZhOBi0aHzN2p6PoG90oEC0vaP765VzFJ3rO7jmbR7coV-Y6LKQ9O6kblVU466j1j35UJkY7jBjuepHufBkMgM_hcrM4cYWHVDiOcH89j3lU1kTxrDKzqoJuWBXFk_2F5PAvggmDOXHPg2zgmE5zLFma_Pa9F7_B6Rw">
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/30 cursor-pointer transition-all hover:opacity-80 relative group">
+<img class="w-full h-full object-cover" data-alt="Wide shot of a festive gift hamper including sweets, a Rakhi, and a decorative diya lamp on a marble surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxGgfqxRzelIT8ekAzqUn-s7bSiwaxYhfynQLRTQTGpXblV89x9e506cRLQZij7inA1PQp9toXXwKGOxbnFZHJI5SAUH5BL74ZDx7RGltoJf7Dpn0loK51FwnmugkIbDmVOFmBNIjSAxK1j9A3PamOr2epuIWOjS9SEJ2y928HcyEPoMnYl24HiK_DxWGIgOIUIlsVxQLscjhw9ZpRjoPa8GuxRq6iXUf9NgTQO_FsyEH-24a65gXrfODzqS_19uUQHtGw62V4dEg">
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Product Details -->
+<div class="lg:col-span-5 space-y-lg">
+<div class="space-y-sm">
+<p class="font-label-caps text-label-caps text-secondary tracking-[0.2em] uppercase">Heritage Collection</p>
+<h1 class="font-headline-md text-display-lg-mobile lg:text-headline-md text-on-surface">The Swarna-Sutra Handcrafted Silk Rakhi</h1>
+<div class="flex items-center gap-4">
+<p class="font-headline-sm text-headline-sm text-primary">₹1,249</p>
+<p class="text-on-surface-variant line-through font-body-md">₹1,850</p>
+<span class="text-secondary font-label-caps text-label-caps">30% OFF</span>
+</div>
+<div class="flex items-center gap-2 text-secondary-container">
+<div class="flex">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0.5;">star</span>
+</div>
+<span class="text-on-surface-variant font-label-caps text-[11px]">(124 Reviews)</span>
+</div>
+</div>
+<!-- Variant Selector -->
+<div class="space-y-md">
+<p class="font-label-caps text-label-caps text-on-surface-variant">SELECT MATERIAL</p>
+<div class="flex gap-4">
+<button class="px-6 py-2 border-2 border-primary rounded-full font-button-text text-primary text-sm transition-all hover:bg-primary hover:text-white">Pure Silk &amp; Gold</button>
+<button class="px-6 py-2 border border-outline-variant/50 rounded-full font-button-text text-on-surface-variant text-sm transition-all hover:border-secondary">Sanders Wood</button>
+</div>
+</div>
+<!-- Personalization Section -->
+<div class="p-md bg-surface-container-low rounded-xl space-y-md border border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">edit_note</span>
+<h3 class="font-headline-sm text-body-lg font-semibold">Make it Personal</h3>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-[10px] text-on-surface-variant">BROTHER'S NAME</label>
+<input class="w-full bg-white border border-outline-variant/30 rounded-lg px-4 py-2 text-sm luxury-input focus:border-secondary focus:ring-0 outline-none transition-all" placeholder="Rahul" type="text">
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-[10px] text-on-surface-variant">SISTER'S NAME</label>
+<input class="w-full bg-white border border-outline-variant/30 rounded-lg px-4 py-2 text-sm luxury-input focus:border-secondary focus:ring-0 outline-none transition-all" placeholder="Anjali" type="text">
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-[10px] text-on-surface-variant">UPLOAD MEMORY (PHOTO CARD)</label>
+<label class="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-outline-variant/30 rounded-lg cursor-pointer bg-white hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-secondary mb-1">add_a_photo</span>
+<span class="text-xs text-on-surface-variant">Click to upload image</span>
+<input class="hidden" type="file">
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-4">
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-primary text-on-primary font-button-text py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined">shopping_cart</span>
+                            ADD TO CART
+                        </button>
+<button class="border-2 border-secondary text-secondary font-button-text py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-secondary hover:text-white transition-all active:scale-95">
+                            BUY NOW
+                        </button>
+</div>
+<p class="text-center text-on-surface-variant text-[11px] font-label-caps">Estimated Delivery: 2-4 Business Days • Free Returns</p>
+</div>
+<!-- Accordions -->
+<div class="space-y-2 border-t border-outline-variant/30 pt-md">
+<details class="group py-3">
+<summary class="flex justify-between items-center font-headline-sm text-body-md cursor-pointer list-none text-on-surface group-open:text-primary">
+                            Product Description
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 text-on-surface-variant text-sm font-body-md leading-relaxed">
+                            Hand-woven using the finest mulberry silk from Varanasi, the Swarna-Sutra Rakhi features a central mandala handcrafted by artisans with 20 years of experience. The design reflects the eternal bond with gold-plated threads and ethically sourced pearls.
+                        </div>
+</details>
+<details class="group py-3 border-t border-outline-variant/20">
+<summary class="flex justify-between items-center font-headline-sm text-body-md cursor-pointer list-none text-on-surface group-open:text-primary">
+                            Luxury Packaging Details
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 text-on-surface-variant text-sm font-body-md leading-relaxed">
+                            Every Rakhi comes housed in our signature royal red velvet box with gold foil detailing. Includes a complimentary Roli-Chawal set in glass vials and a personalized handwritten greeting card.
+                        </div>
+</details>
+<details class="group py-3 border-t border-outline-variant/20">
+<summary class="flex justify-between items-center font-headline-sm text-body-md cursor-pointer list-none text-on-surface group-open:text-primary">
+                            Shipping &amp; Returns
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 text-on-surface-variant text-sm font-body-md leading-relaxed">
+                            Enjoy free express shipping on orders above ₹2,000. For international orders, shipping takes 7-10 business days. Returns are accepted within 7 days for non-personalized items.
+                        </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Frequently Bought Together Section -->
+<section class="mt-xl py-xl border-t border-outline-variant/20">
+<h2 class="font-headline-md text-headline-sm mb-lg text-center">Frequently Bought Together</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-center">
+<!-- Main Product Reference -->
+<div class="flex flex-col items-center gap-md">
+<div class="w-32 h-32 rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Close-up of a luxury red and gold Rakhi for a gift combo preview." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPw01540Lg2Q5X3ywj9ZolZnhCzy6NrCeezxecaR8Pi4Lc3UENkEv6xuxC-HKkZjZ93cORtD8Pn-A1f49hIf5ljeNqEQ4v3r-JRGXSv4UEBBSCSB3EYqtGcOnsJBeMOeo3oV15wcKJr2N9_XaCPaE7PhVRQYErJo4D0CJwoWrFvzzHXhiUa1Tzz2tUIUKekLV2KlEV4gEnOuxVEc651Lf0XxkOWnrHKsYnckak6QsuxuFzp4PY04Du4bzVXZy3M0XJSpGpFS099Z0">
+</div>
+<div class="text-center">
+<p class="font-body-sm font-semibold">Swarna-Sutra Rakhi</p>
+<p class="text-primary text-sm">₹1,249</p>
+</div>
+</div>
+<!-- Addition Symbol -->
+<div class="flex justify-center">
+<span class="material-symbols-outlined text-outline text-3xl">add</span>
+</div>
+<!-- Suggested Item -->
+<div class="flex flex-col items-center gap-md">
+<div class="w-32 h-32 rounded-lg overflow-hidden border border-outline-variant/30 relative">
+<img class="w-full h-full object-cover" data-alt="A box of premium assorted Indian sweets, including Kaju Katli and Motichoor Ladoo, beautifully arranged for a festive gift." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLJxrWoisLsdTh03U5Mh9dGT5_Tbs4F6zhpABp8OSt_f5XHtujsIYB31v70zWhEkKnYjY37xKGg6Xdvl_ys_Y5UgAVYenlMBzPa5pQktNexts7BB-KIRiV9B8P9vonRv05U526W-H_U6rD1JGgAS-E4XECMYaXQieIc-Giaq6yvwvxFB3zQV0aE25pbcuEIXWFjmK4u8I8LpjHpO9TcC1rYIEa8XcdZXIW0RJHfKWrstxZXKswaAR5Rd82s0zo73jTgaiIJtth8hU">
+<div class="absolute top-2 right-2">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5 cursor-pointer" type="checkbox">
+</div>
+</div>
+<div class="text-center">
+<p class="font-body-sm font-semibold">Gourmet Sweets Box (250g)</p>
+<p class="text-primary text-sm">₹499</p>
+</div>
+</div>
+<!-- Results Mobile Only / Combined Desktop -->
+<div class="md:col-span-3 mt-lg bg-surface-container-low rounded-2xl p-lg flex flex-col md:flex-row items-center justify-between gap-md border border-outline-variant/20">
+<div class="space-y-1">
+<p class="font-label-caps text-on-surface-variant">TOTAL BUNDLE PRICE</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">₹1,748 <span class="text-secondary text-sm font-body-md line-through ml-2">₹2,349</span></p>
+</div>
+<button class="bg-secondary text-on-secondary font-button-text px-8 py-4 rounded-xl hover:bg-secondary/90 transition-all shadow-md flex items-center gap-2">
+                        ADD BUNDLE TO CART
+                        <span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter px-margin-desktop py-xl max-w-container-max mx-auto">
+<div class="md:col-span-2">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-primary mb-4">RakhiStore</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs leading-relaxed">Celebrating the sacred bond with artisan-crafted threads and premium gifts that honor tradition while embracing modern luxury.</p>
+<div class="flex gap-4 mt-6">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-secondary">COLLECTIONS</h3>
+<ul class="space-y-2">
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Gold Rakhi</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Silk Threads</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Kid's Edition</a></li>
+<li class=""><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Bhaiya-Bhabhi Sets</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-secondary">CUSTOMER SERVICE</h3>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="about-us.html">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="contact-us.html">Contact Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="privacy-policy.html">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="terms-conditions.html">Terms & Conditions</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="refund-policy.html">Refund & Cancellation</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-secondary">CONTACT CONCIERGE</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">care@rakhistore.com<br>+91 98765 43210</p>
+</div>
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-secondary">NEWSLETTER</h3>
+<div class="flex flex-col gap-3">
+<input class="bg-white border border-outline-variant/30 rounded-lg px-4 py-2 text-sm focus:border-secondary focus:ring-0 outline-none" placeholder="Email Address" type="email">
+<button class="bg-secondary text-white py-2 rounded-lg font-button-text text-sm">SUBSCRIBE</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 text-center">
+<p class="font-label-caps text-[10px] text-on-surface-variant">© 2024 RakhiStore. All rights reserved. Crafted with Tradition.</p>
+</div>
+</footer>
+<!-- Sticky Mobile CTA -->
+<div class="lg:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-outline-variant/30 p-4 grid grid-cols-2 gap-4 z-[60] shadow-2xl">
+<button class="bg-primary text-on-primary font-button-text py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-md">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+            ADD TO CART
+        </button>
+<button class="bg-secondary text-white font-button-text py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-md">
+            BUY NOW
+        </button>
+</div>
+<script>
+        // Dynamic Product details rendering
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+            let product = PRODUCTS.find(p => p.id === id);
+            
+            // Fallback to first product if none specified or not found
+            if (!product) {
+                product = PRODUCTS[0];
+            }
+            
+            // Render details
+            const titleEl = document.querySelector("main h1");
+            if (titleEl) titleEl.textContent = product.name;
+            
+            const priceEl = document.querySelector("main p.text-primary");
+            if (priceEl) priceEl.textContent = `₹${product.price.toLocaleString("en-IN")}`;
+            
+            const oldPriceEl = document.querySelector("main p.line-through");
+            if (oldPriceEl) {
+                const oldPrice = Math.round(product.price * 1.4);
+                oldPriceEl.textContent = `₹${oldPrice.toLocaleString("en-IN")}`;
+            }
+            
+            const mainImg = document.querySelector("main img.transition-transform");
+            if (mainImg) {
+                mainImg.src = product.image;
+                mainImg.setAttribute("data-alt", product.description);
+            }
+            
+            // Update thumbnails
+            const thumbnails = document.querySelectorAll("main .grid.grid-cols-4 img");
+            if (thumbnails.length > 0) thumbnails[0].src = product.image;
+            if (thumbnails.length > 1 && product.image2) thumbnails[1].src = product.image2;
+            if (thumbnails.length > 1 && !product.image2) thumbnails[1].src = product.image; // fallback
+            
+            // Description accordion
+            const descEl = document.querySelector("details div");
+            if (descEl) descEl.textContent = product.description;
+            
+            // Badges
+            const badgeContainer = document.querySelector("main .absolute.top-4.left-4");
+            if (badgeContainer) {
+                badgeContainer.innerHTML = "";
+                if (product.badge) {
+                    const span = document.createElement("span");
+                    span.className = "bg-primary text-on-primary font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-widest";
+                    span.textContent = product.badge;
+                    badgeContainer.appendChild(span);
+                }
+            }
+            
+            // Bind Add to Cart buttons
+            const handleAddToCart = (e) => {
+                e.preventDefault();
+                addToCart(product.id, 1);
+            };
+            
+            const handleBuyNow = (e) => {
+                e.preventDefault();
+                addToCart(product.id, 1);
+                window.location.href = "shopping-cart.html";
+            };
+            
+            // Bind desktop buttons in the CTA section
+            const actionButtons = document.querySelectorAll("main button");
+            actionButtons.forEach(btn => {
+                const text = btn.textContent.trim().toLowerCase();
+                if (text.includes("add to cart")) {
+                    btn.addEventListener("click", handleAddToCart);
+                } else if (text.includes("buy now")) {
+                    btn.addEventListener("click", handleBuyNow);
+                }
+            });
+            
+            // Bind mobile sticky CTA buttons
+            const mobileCtaSection = document.querySelector(".lg\\:hidden.fixed.bottom-0");
+            if (mobileCtaSection) {
+                mobileCtaSection.querySelectorAll("button").forEach(btn => {
+                    const text = btn.textContent.trim().toLowerCase();
+                    if (text.includes("add to cart")) {
+                        btn.addEventListener("click", handleAddToCart);
+                    } else if (text.includes("buy now")) {
+                        btn.addEventListener("click", handleBuyNow);
+                    }
+                });
+            }
+        });
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Smooth reveal for accordions
+        const details = document.querySelectorAll("details");
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

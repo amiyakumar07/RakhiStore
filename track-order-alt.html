@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track Your Order | RakhiAura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600&family=Poppins:wght@600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Shared Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#eae7e7",
+                    "surface-bright": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#5b403d",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#af4440",
+                    "secondary-fixed": "#ffdea3",
+                    "secondary-fixed-dim": "#fdbc13",
+                    "on-tertiary-fixed-variant": "#832423",
+                    "inverse-primary": "#ffb4ac",
+                    "primary": "#a20513",
+                    "on-primary-container": "#ffe0dd",
+                    "inverse-surface": "#303030",
+                    "surface-tint": "#b91d20",
+                    "on-tertiary-fixed": "#410004",
+                    "tertiary": "#8f2d2b",
+                    "surface-container": "#f0eded",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "on-background": "#1b1b1c",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#6b4d00",
+                    "on-primary-fixed": "#410003",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ffe0dd",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-fixed-variant": "#93000e",
+                    "surface": "#fcf9f8",
+                    "secondary": "#7a5900",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "tertiary-fixed": "#ffdad7",
+                    "secondary-container": "#fdbc13",
+                    "primary-container": "#c62828",
+                    "outline": "#8f706c",
+                    "background": "#fcf9f8",
+                    "outline-variant": "#e4beba",
+                    "surface-variant": "#e5e2e1",
+                    "surface-dim": "#dcd9d9",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#261900",
+                    "on-surface": "#1b1b1c",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "button-text": ["Poppins"],
+                    "display-lg": ["Playfair Display"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "button-text": ["15px", {"lineHeight": "1", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-step-shadow {
+            box-shadow: 0 0 20px rgba(162, 5, 19, 0.15);
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #a20513 50%, #e4beba 50%);
+            background-size: 100% 200%;
+            background-position: bottom;
+            transition: background-position 1s ease-in-out;
+        }
+        .timeline-line.completed {
+            background-position: top;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 236, 236, 0.5);
+        }
+    </style>
+<script src="shared.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- TopNavBar (Shared Component Execution) -->
+<nav class="bg-surface/80 dark:bg-surface-container-low/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">RakhiAura</div>
+<div class="hidden md:flex gap-base">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Shop</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Rakhi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Gift Hampers</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Personalized</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Sweets</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="browse-collection.html">Corporate</a>
+</div>
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">search</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">favorite</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">shopping_bag</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors bg-primary-container/10">person</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-lg lg:py-xl">
+<!-- Page Header -->
+<div class="mb-lg text-center md:text-left">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-xs">Track Your Order</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant" id="order-header-info">Order #RA-9928374 • Placed on Aug 12, 2024</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Tracking Timeline -->
+<div class="lg:col-span-7 space-y-md">
+<div class="glass-card rounded-xl p-md md:p-lg shadow-[0_20px_30px_-10px_rgba(31,31,31,0.06)]">
+<div class="flex flex-col md:flex-row justify-between items-center mb-lg pb-md border-b border-outline-variant/30">
+<div class="text-center md:text-left mb-base md:mb-0">
+<span class="font-label-caps text-label-caps text-secondary block mb-1">Current Status</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Packed with Care</span>
+</div>
+<div class="text-center md:text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Estimated Delivery</span>
+<span class="font-headline-sm text-headline-sm text-primary">Aug 18, 2024</span>
+</div>
+</div>
+<!-- Vertical Timeline (Mobile) / Horizontal (Desktop) -->
+<div class="relative py-base">
+<div class="flex flex-col space-y-lg relative">
+<!-- Timeline Items -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-0.5 h-full bg-primary -mt-1"></div>
+</div>
+<div class="pb-md">
+<h4 class="font-headline-sm text-[18px] text-on-surface">Order Placed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aug 12, 10:30 AM • We've received your order.</p>
+</div>
+</div>
+<div class="flex gap-md group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 active-step-shadow">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<div class="w-0.5 h-full bg-outline-variant -mt-1"></div>
+</div>
+<div class="pb-md">
+<h4 class="font-headline-sm text-[18px] text-primary">Packed with Care</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aug 13, 02:15 PM • Your Rakhi is being beautifully gift-wrapped.</p>
+<div class="mt-sm inline-flex items-center gap-xs px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold rounded-full uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                                        In Progress
+                                    </div>
+</div>
+</div>
+<div class="flex gap-md group opacity-50">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div class="w-0.5 h-full bg-outline-variant -mt-1"></div>
+</div>
+<div class="pb-md">
+<h4 class="font-headline-sm text-[18px] text-on-surface">In Transit</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pending courier pickup.</p>
+</div>
+</div>
+<div class="flex gap-md group opacity-50">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]">card_giftcard</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-on-surface">Delivered</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Final destination.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Shipping Details -->
+<div class="glass-card rounded-xl p-md md:p-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Shipping Address</h3>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<div class="font-body-md text-body-md text-on-surface-variant" id="tracking-address">
+<p class="font-bold text-on-surface">Aditya Sharma</p>
+<p>45, Heritage Enclave, Civil Lines</p>
+<p>Jaipur, Rajasthan - 302001</p>
+<p>India</p>
+<p class="mt-xs">+91 98765 43210</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Summary & Support -->
+<div class="lg:col-span-5 space-y-md">
+<!-- Order Summary -->
+<div class="glass-card rounded-xl p-md md:p-lg shadow-[0_20px_30px_-10px_rgba(31,31,31,0.06)]">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Order Summary</h3>
+<div class="space-y-md border-b border-outline-variant/30 pb-md mb-md" id="tracking-items-list">
+<!-- Product Item 1 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 bg-surface-container-high rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A luxury hand-crafted designer Rakhi featuring intricate zari work, pearls, and gold-plated centerpieces, photographed on a premium cream silk fabric background with soft lighting for a high-end luxury feel. The colors include deep red and gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAEhcpnH7k1P2MzbYv-H8oORN1AqdYtnTL6C_ZAgOgxxCvaGuH7tZ7Q6xKEMT7EcjdclGY_hTml1EJzBiafvfw8s-N9dfUU43c5zDw3IfPBOY_AOySjQxJBwI-o0J7zGhva8rlBcSHnT3fN1qjl1ViUeFYTNeh5rZwj-taObgFa5KCrPNSVrk78cy-WiuItVHsCkhMonJ6uoUezX0FrtwleRy6vKMniFoZoluwLuW74KyiGkn13dlMZIEh7LQRRcShV7qD11weSdU"/>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Celestial Zari Rakhi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Collection: Heritage Gold</p>
+<div class="flex justify-between items-center mt-xs">
+<span class="font-body-sm text-body-sm">Qty: 1</span>
+<span class="font-body-md text-body-md font-bold text-primary">₹1,249</span>
+</div>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 bg-surface-container-high rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A premium gourmet gift hamper box for Raksha Bandhan, containing exotic dry fruits in brass bowls, artisanal chocolates, and a small decorative greeting card, styled in a minimalist editorial fashion with warm cream background and shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqIOWKDsSh8emBi1vDliLhBI-AZ1Z_c1qxw76AKJpB0j88KwG73QSQ7W5NKWULQnjpSwo_vS134d03aKrwWXsFCC_paQGUwVFEu-zqVS9vn-jubrpz2Kn9IIrnLt2JxpjR3ev_RWSxmlNnv87K6syDjFPED-h3FRrOMKQ9DX8nECfyUqAOaOGSGK9eQHON0KHqlMy18CQ02VHQz1g23RfyEitRIPhSbK8YanPuuvw8WXIuAq0nxd8-rdQKYFqn1JBx96cp249hcac"/>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Artisanal Sweet Box</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Size: Regular (500g)</p>
+<div class="flex justify-between items-center mt-xs">
+<span class="font-body-sm text-body-sm">Qty: 1</span>
+<span class="font-body-md text-body-md font-bold text-primary">₹899</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Payment Details -->
+<div class="space-y-sm">
+<div class="flex justify-between font-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span id="tracking-subtotal">₹2,148</span>
+</div>
+<div class="flex justify-between font-body-sm text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-secondary font-semibold" id="tracking-shipping">Free</span>
+</div>
+<div class="flex justify-between font-headline-sm text-[20px] text-on-surface pt-sm">
+<span>Total</span>
+<span class="text-primary" id="tracking-total">₹2,148</span>
+</div>
+</div>
+</div>
+<!-- Support Section -->
+<div class="bg-primary/5 rounded-xl p-md md:p-lg border border-primary/10">
+<div class="flex items-center gap-sm mb-sm text-primary">
+<span class="material-symbols-outlined">help_outline</span>
+<h3 class="font-headline-sm text-[20px]">Need Help?</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md leading-relaxed">
+                        Have questions about your order? Our concierge team is here to ensure your Raksha Bandhan is perfect.
+                    </p>
+<div class="space-y-sm">
+<a class="flex items-center gap-base p-sm bg-surface rounded-lg hover:shadow-md transition-all group" href="mailto:care@rakhiaura.com">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-0.5">EMAIL US</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">care@rakhiaura.com</p>
+</div>
+</a>
+<a class="flex items-center gap-base p-sm bg-surface rounded-lg hover:shadow-md transition-all group" href="tel:+918005550199">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">call</span>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-0.5">CALL US</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">1800-AURA-RAKHI</p>
+</div>
+</a>
+</div>
+<button class="w-full mt-md bg-primary text-white py-3 rounded-lg font-button-text text-button-text hover:bg-primary-container transition-all active:scale-95 shadow-lg shadow-primary/20">
+                        Live Chat Support
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component Execution) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter px-margin-desktop py-xl max-w-container-max mx-auto">
+<div class="lg:col-span-2">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary mb-4">RakhiAura</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reviving the timeless beauty of tradition with a touch of modern luxury. Curated Rakhis for every brother, crafted with love.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-secondary mb-md">Collections</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Heritage Gold</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Silver Filigree</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Silk Threads</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Kids Special</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-secondary mb-md">Customer Support</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="about-us.html">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="contact-us.html">Contact Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="privacy-policy.html">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="terms-conditions.html">Terms & Conditions</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="refund-policy.html">Refund & Cancellation</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="font-headline-sm text-[16px] text-secondary mb-md">Newsletter</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Join our circle for exclusive festive collections and early access.</p>
+<div class="flex gap-xs">
+<input class="flex-1 bg-surface-container-low border-outline-variant focus:ring-secondary focus:border-secondary rounded-lg" placeholder="Email Address" type="email"/>
+<button class="bg-secondary text-white px-md py-2 rounded-lg font-button-text">Join</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-md border-t border-outline-variant/30 text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">© 2024 RakhiAura. All rights reserved. Crafted with Tradition.</span>
+</div>
+</footer>
+<script>
+        // Dynamic Order Tracking Renderer
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const orderId = params.get("orderId");
+            if (!orderId) return;
+            
+            // Fetch orders from localStorage
+            const orders = JSON.parse(localStorage.getItem("rakhi_orders") || "[]");
+            const order = orders.find(o => o.id === orderId);
+            
+            if (order) {
+                // Update Order ID & Header
+                const orderHeader = document.getElementById("order-header-info");
+                if (orderHeader) {
+                    orderHeader.innerHTML = `Order #${order.id} • Placed on ${order.date}`;
+                }
+                
+                // Update Address
+                const addressContainer = document.getElementById("tracking-address");
+                if (addressContainer && order.address) {
+                    const addr = order.address;
+                    addressContainer.innerHTML = `
+                        <p class="font-bold text-on-surface">${addr.name}</p>
+                        <p>${addr.address}</p>
+                        <p>${addr.city} - ${addr.pincode}</p>
+                        <p>India</p>
+                        <p class="mt-xs">${addr.phone}</p>
+                    `;
+                }
+                
+                // Update Items list
+                const itemsList = document.getElementById("tracking-items-list");
+                if (itemsList && order.items) {
+                    itemsList.innerHTML = "";
+                    order.items.forEach(item => {
+                        const div = document.createElement("div");
+                        div.className = "flex gap-md";
+                        div.innerHTML = `
+                            <div class="w-20 h-20 bg-surface-container-high rounded-lg overflow-hidden shrink-0">
+                                <img class="w-full h-full object-cover" src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-body-md text-body-md font-semibold text-on-surface">${item.name}</h4>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">${item.badge || 'Premium'}</p>
+                                <div class="flex justify-between items-center mt-xs">
+                                    <span class="font-body-sm text-body-sm">Qty: ${item.quantity}</span>
+                                    <span class="font-body-md text-body-md font-bold text-primary">₹${item.price.toLocaleString("en-IN")}</span>
+                                </div>
+                            </div>
+                        `;
+                        itemsList.appendChild(div);
+                    });
+                }
+                
+                // Update Totals
+                const subtotalEl = document.getElementById("tracking-subtotal");
+                const shippingEl = document.getElementById("tracking-shipping");
+                const totalEl = document.getElementById("tracking-total");
+                
+                if (subtotalEl) subtotalEl.textContent = `₹${order.subtotal.toLocaleString("en-IN")}`;
+                if (shippingEl) shippingEl.textContent = order.total.includes("FREE") ? "Free" : order.total; // simple match
+                if (totalEl) totalEl.textContent = order.total;
+            }
+        });
+
+        // Micro-interaction for tracking number copy
+        document.querySelector('h1').addEventListener('click', () => {
+            const params = new URLSearchParams(window.location.search);
+            const orderId = params.get("orderId") || 'RA-9928374';
+            navigator.clipboard.writeText(orderId).then(() => {
+                const infoPara = document.getElementById('order-header-info');
+                if (infoPara) {
+                    const originalText = infoPara.innerText;
+                    infoPara.innerText = 'Order ID Copied!';
+                    setTimeout(() => {
+                        infoPara.innerText = originalText;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Simple enter animation for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

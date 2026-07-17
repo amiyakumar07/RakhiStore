@@ -1,0 +1,802 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Cart &amp; Checkout | RakhiAura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface": "#1b1b1c",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-high": "#eae7e7",
+                    "secondary": "#7a5900",
+                    "tertiary": "#8f2d2b",
+                    "primary-container": "#c62828",
+                    "outline": "#8f706c",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "on-primary-fixed": "#410003",
+                    "inverse-surface": "#303030",
+                    "on-secondary-fixed": "#261900",
+                    "secondary-fixed": "#ffdea3",
+                    "on-tertiary-container": "#ffe0dd",
+                    "secondary-container": "#fdbc13",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#b91d20",
+                    "surface-container-highest": "#e5e2e1",
+                    "primary": "#a20513",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#93000e",
+                    "on-primary-container": "#ffe0dd",
+                    "on-tertiary-fixed-variant": "#832423",
+                    "surface-container": "#f0eded",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-secondary-container": "#6b4d00",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "secondary-fixed-dim": "#fdbc13",
+                    "outline-variant": "#e4beba",
+                    "tertiary-container": "#af4440",
+                    "primary-fixed": "#ffdad6",
+                    "inverse-primary": "#ffb4ac",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1b1c",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#5b403d",
+                    "on-tertiary-fixed": "#410004",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#5d4200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "16px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-desktop": "40px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-caps": ["Inter"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "button-text": ["Poppins"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "button-text": ["15px", {"lineHeight": "1", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .soft-shadow {
+            box-shadow: 0 20px 30px -10px rgba(31, 31, 31, 0.06);
+        }
+        .checkout-step.active .step-icon {
+            background-color: #a20513;
+            color: white;
+        }
+        .checkout-step.completed .step-icon {
+            background-color: #7a5900;
+            color: white;
+        }
+        input:focus {
+            outline: none !important;
+            border-color: #D4AF37 !important;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1) !important;
+        }
+        .confetti-container {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+        }
+    </style>
+<script src="shared.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed-dim">
+<!-- Header (Suppressed active links for focus on checkout) -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-outline-variant/30 h-20 shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="home.html">RakhiStore</a>
+<div class="hidden md:flex items-center gap-8">
+<span class="font-body-md text-on-surface-variant/60">Secure Checkout</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">person</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Multi-step Progress Indicator -->
+<div class="flex items-center justify-center mb-12 gap-2 md:gap-4 max-w-2xl mx-auto" id="checkout-progress">
+<div class="checkout-step active flex flex-col items-center gap-2" data-step="1">
+<div class="step-icon w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center font-bold font-body-sm transition-all">1</div>
+<span class="font-label-caps text-label-caps text-primary">ADDRESS</span>
+</div>
+<div class="h-[2px] w-12 md:w-20 bg-outline-variant/30 mb-5"></div>
+<div class="checkout-step flex flex-col items-center gap-2 opacity-50" data-step="2">
+<div class="step-icon w-10 h-10 rounded-full border-2 border-outline flex items-center justify-center font-bold font-body-sm transition-all">2</div>
+<span class="font-label-caps text-label-caps">SHIPPING</span>
+</div>
+<div class="h-[2px] w-12 md:w-20 bg-outline-variant/30 mb-5"></div>
+<div class="checkout-step flex flex-col items-center gap-2 opacity-50" data-step="3">
+<div class="step-icon w-10 h-10 rounded-full border-2 border-outline flex items-center justify-center font-bold font-body-sm transition-all">3</div>
+<span class="font-label-caps text-label-caps">PAYMENT</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Forms -->
+<div class="lg:col-span-8">
+<!-- Cart Summary / Step 0 (Always visible or toggleable) -->
+<section class="space-y-8" id="address-section">
+<div class="bg-surface-container-lowest rounded-xl p-8 soft-shadow">
+<h2 class="font-headline-sm text-headline-sm mb-6 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span> Shipping Address
+                        </h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">FULL NAME</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="Arjun Malhotra" type="text">
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">EMAIL ADDRESS</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="arjun@example.com" type="email">
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">PHONE NUMBER</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="+91 98765 43210" type="tel">
+</div>
+<div class="md:col-span-2">
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">STREET ADDRESS</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="Apt 402, Lotus Greens, Sector 150" type="text">
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">CITY</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="New Delhi" type="text">
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">PINCODE</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="110001" type="text">
+</div>
+</form>
+<div class="mt-8 flex justify-end">
+<button class="bg-primary text-on-primary font-button-text text-button-text px-10 py-4 rounded-full hover:scale-105 transition-transform shadow-lg active:scale-95" onclick="nextStep(2)">
+                                CONTINUE TO SHIPPING
+                            </button>
+</div>
+</div>
+</section>
+<section class="hidden space-y-8" id="shipping-section">
+<div class="bg-surface-container-lowest rounded-xl p-8 soft-shadow">
+<h2 class="font-headline-sm text-headline-sm mb-6 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_shipping</span> Shipping Method
+                        </h2>
+<div class="space-y-4">
+<label class="flex items-center justify-between p-4 border-2 border-primary bg-primary/5 rounded-xl cursor-pointer group">
+<div class="flex items-center gap-4">
+<input checked="" class="text-primary focus:ring-primary h-5 w-5" name="shipping" type="radio">
+<div>
+<p class="font-body-md font-semibold">Standard Shipping</p>
+<p class="font-body-sm text-on-surface-variant">3-5 Business Days</p>
+</div>
+</div>
+<span class="font-body-md font-bold text-primary">FREE</span>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-4">
+<input class="text-primary focus:ring-primary h-5 w-5" name="shipping" type="radio">
+<div>
+<p class="font-body-md font-semibold">Express Delivery</p>
+<p class="font-body-sm text-on-surface-variant">Next Business Day</p>
+</div>
+</div>
+<span class="font-body-md font-bold">₹250</span>
+</label>
+</div>
+<div class="mt-8 flex justify-between">
+<button class="text-primary font-button-text text-button-text flex items-center gap-2 hover:underline" onclick="nextStep(1)">
+<span class="material-symbols-outlined">arrow_back</span> Back
+                            </button>
+<button class="bg-primary text-on-primary font-button-text text-button-text px-10 py-4 rounded-full hover:scale-105 transition-transform shadow-lg active:scale-95" onclick="nextStep(3)">
+                                CONTINUE TO PAYMENT
+                            </button>
+</div>
+</div>
+</section>
+<section class="hidden space-y-8" id="payment-section">
+<div class="bg-surface-container-lowest rounded-xl p-8 soft-shadow">
+<h2 class="font-headline-sm text-headline-sm mb-6 text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">payments</span> Secure Payment
+                        </h2>
+<!-- UPI Options -->
+<div class="mb-8">
+<p class="font-label-caps text-label-caps mb-4 opacity-70">POPULAR UPI OPTIONS</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<button class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-3xl mb-2 text-on-surface-variant group-hover:text-primary">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps">GPay</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-3xl mb-2 text-on-surface-variant group-hover:text-primary">smartphone</span>
+<span class="font-label-caps text-label-caps">PhonePe</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-3xl mb-2 text-on-surface-variant group-hover:text-primary">qr_code_2</span>
+<span class="font-label-caps text-label-caps">Any UPI</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-3xl mb-2 text-on-surface-variant group-hover:text-primary">payments</span>
+<span class="font-label-caps text-label-caps">PayTM</span>
+</button>
+</div>
+</div>
+<!-- Card Form -->
+<div class="space-y-6 pt-6 border-t border-outline-variant/30">
+<p class="font-label-caps text-label-caps mb-4 opacity-70">CREDIT / DEBIT CARD</p>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">CARD NUMBER</label>
+<div class="relative">
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md pl-12" placeholder="0000 0000 0000 0000" type="text">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">EXPIRY DATE</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="MM/YY" type="text">
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">CVV</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 font-body-md" placeholder="***" type="password">
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-between items-center">
+<button class="text-primary font-button-text text-button-text flex items-center gap-2 hover:underline" onclick="nextStep(2)">
+<span class="material-symbols-outlined">arrow_back</span> Back
+                            </button>
+<button class="bg-primary text-on-primary font-button-text text-button-text px-12 py-4 rounded-full hover:scale-105 transition-transform shadow-xl active:scale-95 flex items-center gap-2" onclick="showSuccess()">
+                                PAY ₹5,490 <span class="material-symbols-outlined">lock</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<aside class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 soft-shadow sticky top-28">
+<h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">Order Summary</h3>
+<!-- Product List -->
+<div class="space-y-6 mb-8 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar" id="checkout-items-list">
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-xl flex-shrink-0 overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Close-up macro shot of a handcrafted premium silk Rakhi with intricate gold zari work and a central semi-precious stone. The background is soft warm cream, matching a luxury boutique aesthetic with subtle bokeh lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6fec4WnaEg_mOg59znG8mbBQmHIvYqbPwye_W1A-AU4FNnTLmo_kxGYozohiOM08vhVYmyj3StQUKfgqNeRXVRtQFPILVT5Xga5FJFDC5l7cw0KyDrJB4HK9XcvnBJcf6CBpR5F6PvNWnzrMgDWt0ypZqS1laU6FcsCpZejqPtKy5f5DhGY3UsQt3ua4VI5CV6MU-GIfOobVyg2xQzPzmNLnvalkSSoOf8uttKT5UjNu9fmAVPqvnEpRuCOCM5FsckIuUeR4gFx4">
+</div>
+<div class="flex-1">
+<h4 class="font-body-md font-semibold text-on-surface leading-tight">Royal Zari Rakhi</h4>
+<p class="font-body-sm text-on-surface-variant mb-2">Set of 2 • Maroon</p>
+<div class="flex justify-between items-center">
+<span class="font-body-md font-bold">₹2,450</span>
+<div class="flex items-center gap-2 text-xs border border-outline-variant rounded-lg px-2 py-1">
+<span class="">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-xl flex-shrink-0 overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A luxurious festive gift hamper containing assortment of gourmet Indian sweets and dried fruits in designer jars. Elegant gold foil packaging and a silk ribbon accent. High-end product photography style with warm, inviting studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWc81b1pYQzGLHTnMu9r-Q-aJGbJobe7ldgKp2Cu7FykZIVMjdbIIEKUfTbnZZ02Eb4N_S0s84B4drvvzVf04ib4Ga8n7yEqKCLxeZbSWLCiQB_ynQa2UOCspHmYb_95dWK1aKReYPf1zW1rh59bB6S7lC4tbJxRoBWUb4wuVc4md_n-JsvDjOitQRYtgXh9aCm9aG2-CgiceYD7BlyB6QSMw7oCcv2XEMkYj0X8z104noGIbhg6q_SXj21X1nprk9qUqfFGrERqA">
+</div>
+<div class="flex-1">
+<h4 class="font-body-md font-semibold text-on-surface leading-tight">Heritage Sweet Box</h4>
+<p class="font-body-sm text-on-surface-variant mb-2">1kg • Premium Selection</p>
+<div class="flex justify-between items-center">
+<span class="font-body-md font-bold">₹3,200</span>
+<div class="flex items-center gap-2 text-xs border border-outline-variant rounded-lg px-2 py-1">
+<span class="">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Gift Wrap Selection -->
+<div class="p-4 bg-secondary/5 rounded-xl border border-secondary/20 mb-8 flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">featured_seasonal_and_gifts</span>
+<div class="text-left">
+<p class="font-body-sm font-semibold text-secondary">Add Luxury Gift Wrap</p>
+<p class="text-[10px] uppercase tracking-wider text-secondary/70">Personalized Card Included</p>
+</div>
+</div>
+<input class="rounded text-secondary focus:ring-secondary" type="checkbox" id="checkout-wrap-checkbox">
+</div>
+<!-- Coupon Input -->
+<div class="mb-8">
+<label class="font-label-caps text-label-caps block mb-2 opacity-70">COUPON CODE</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface border-outline-variant rounded-xl px-4 py-2 font-body-sm" placeholder="FESTIVE20" type="text" id="coupon-input">
+<button class="text-secondary font-button-text text-button-text px-4 py-2 hover:bg-secondary/5 rounded-xl transition-colors" id="apply-coupon-btn">APPLY</button>
+</div>
+</div>
+<!-- Totals -->
+<div class="space-y-3 border-t border-outline-variant/30 pt-6">
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span class="">Subtotal</span>
+<span id="checkout-subtotal">₹0</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span class="">Luxury Wrap</span>
+<span id="checkout-wrap">₹0</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span class="">Shipping</span>
+<span id="checkout-shipping">₹0</span>
+</div>
+<div class="flex justify-between font-body-md text-primary">
+<span class="">Festive Discount</span>
+<span id="checkout-discount">-₹0</span>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant mt-2">
+<span class="font-headline-sm text-headline-sm">Total</span>
+<span class="font-headline-sm text-headline-sm text-on-surface" id="checkout-total">₹0</span>
+</div>
+<p class="text-center text-[10px] text-on-surface-variant mt-4">Inclusive of all taxes &amp; duties</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Success Overlay (Hidden by Default) -->
+<div class="fixed inset-0 z-[100] bg-surface hidden items-center justify-center p-6" id="success-overlay">
+<div class="confetti-container" id="confetti-anchor"></div>
+<div class="max-w-2xl w-full text-center space-y-8 animate-in fade-in zoom-in duration-500">
+<div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-6xl text-green-600">check_circle</span>
+</div>
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-primary">Order Successful!</h1>
+<p class="font-body-lg text-on-surface-variant">Thank you, Arjun. Your celebration is on its way. We've sent a confirmation email to arjun@example.com.</p>
+<p class="mt-2 font-body-md font-semibold">Order ID: #RA-88392-L</p>
+</div>
+<!-- Tracking Timeline -->
+<div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow text-left max-w-md mx-auto">
+<h3 class="font-label-caps text-label-caps mb-6 text-on-surface-variant">TRACKING TIMELINE</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-4 h-4 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="absolute top-4 left-2 w-0.5 h-full bg-primary/20 -translate-x-1/2"></div>
+</div>
+<div>
+<p class="font-body-md font-bold text-primary">Order Confirmed</p>
+<p class="font-body-sm text-on-surface-variant">Today, 2:45 PM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-4 h-4 rounded-full bg-outline-variant"></div>
+<div class="absolute top-4 left-2 w-0.5 h-full bg-primary/20 -translate-x-1/2"></div>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface-variant opacity-60">Preparing Parcel</p>
+<p class="font-body-sm text-on-surface-variant opacity-60">Expected by 6 PM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-4 h-4 rounded-full bg-outline-variant"></div>
+<div>
+<p class="font-body-md font-semibold text-on-surface-variant opacity-60">Shipped</p>
+<p class="font-body-sm text-on-surface-variant opacity-60">Est. Arrival: Aug 24</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="bg-primary text-on-primary font-button-text text-button-text px-10 py-4 rounded-full hover:scale-105 transition-transform shadow-lg">
+                    TRACK ORDER
+                </button>
+<button class="text-secondary font-button-text text-button-text px-10 py-4 rounded-full hover:bg-secondary/5 transition-colors" onclick="window.location.reload()">
+                    CONTINUE SHOPPING
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter px-margin-desktop py-xl max-w-container-max mx-auto">
+<div class="lg:col-span-2">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary mb-4">RakhiStore</div>
+<p class="font-body-sm text-on-surface-variant mb-6">Preserving traditions with a touch of modern luxury. Every Rakhi tells a story of love and protection.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim bg-secondary p-2 rounded-full cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim bg-secondary p-2 rounded-full cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps mb-4 text-on-surface">Collections</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Royal Silk</a></li>
+<li class=""><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Eco-Friendly</a></li>
+<li class=""><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Kids Special</a></li>
+<li class=""><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="#">Silver Edits</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps mb-4 text-on-surface">Customer Service</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="about-us.html">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="contact-us.html">Contact Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="privacy-policy.html">Privacy Policy</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="terms-conditions.html">Terms & Conditions</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-all" href="refund-policy.html">Refund & Cancellation</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h4 class="font-label-caps text-label-caps mb-4 text-on-surface">The RakhiStore Newsletter</h4>
+<p class="font-body-sm text-on-surface-variant mb-4">Join for exclusive early access to festive collections.</p>
+<div class="flex gap-2">
+<input class="bg-surface border-outline-variant rounded-xl px-4 py-2 w-full font-body-sm" placeholder="Your Email" type="email">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl">JOIN</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-8 border-t border-outline-variant/30 text-center">
+<p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2024 RakhiStore. All rights reserved. Crafted with Tradition.</p>
+</div>
+</footer>
+<script>
+        let generatedOrderId = "";
+
+        // Form navigation logic
+        function nextStep(step) {
+            // Form Validation before moving forward
+            if (step === 2) {
+                const name = document.querySelector('input[placeholder="Arjun Malhotra"]').value.trim();
+                const email = document.querySelector('input[placeholder="arjun@example.com"]').value.trim();
+                const phone = document.querySelector('input[placeholder="+91 98765 43210"]').value.trim();
+                const address = document.querySelector('input[placeholder="Apt 402, Lotus Greens, Sector 150"]').value.trim();
+                const city = document.querySelector('input[placeholder="New Delhi"]').value.trim();
+                const pincode = document.querySelector('input[placeholder="110001"]').value.trim();
+                
+                if (!name || !email || !phone || !address || !city || !pincode) {
+                    showToast("Please fill in all shipping details.");
+                    return;
+                }
+                
+                // Save address to temp storage
+                localStorage.setItem("temp_shipping_address", JSON.stringify({ name, email, phone, address, city, pincode }));
+            }
+
+            if (step === 3) {
+                // If moving to payment, ensure shipping method is chosen
+            }
+
+            const sections = ['address-section', 'shipping-section', 'payment-section'];
+            const steps = document.querySelectorAll('.checkout-step');
+            
+            // Hide all sections
+            sections.forEach(s => document.getElementById(s).classList.add('hidden'));
+            
+            // Show current section
+            document.getElementById(sections[step-1]).classList.remove('hidden');
+            
+            // Update progress indicator
+            steps.forEach((el, idx) => {
+                if (idx + 1 < step) {
+                    el.classList.add('completed');
+                    el.classList.remove('active', 'opacity-50');
+                } else if (idx + 1 === step) {
+                    el.classList.add('active');
+                    el.classList.remove('completed', 'opacity-50');
+                } else {
+                    el.classList.remove('active', 'completed');
+                    el.classList.add('opacity-50');
+                }
+            });
+
+            // Scroll to top of form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Render checkout summary from cart
+        function renderCheckoutSummary() {
+            const cart = getCart();
+            const container = document.getElementById("checkout-items-list");
+            if (!container) return;
+            
+            container.innerHTML = "";
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-on-surface-variant font-body-sm text-center py-6">Your cart is empty.</p>`;
+                return;
+            }
+            
+            cart.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "flex gap-4";
+                div.innerHTML = `
+                    <div class="w-20 h-20 bg-surface-container rounded-xl flex-shrink-0 overflow-hidden border border-outline-variant/30">
+                        <img class="w-full h-full object-cover" src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-body-md font-semibold text-on-surface leading-tight">${item.name}</h4>
+                        <p class="font-body-sm text-on-surface-variant mb-2">${item.badge || 'Premium'}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-body-md font-bold">₹${item.price.toLocaleString("en-IN")}</span>
+                            <div class="flex items-center gap-2 text-xs border border-outline-variant rounded-lg px-2 py-1 bg-surface">
+                                <span class="">Qty: ${item.quantity}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            // Set initial state of gift wrap checkbox from cart selection
+            const savedWrapChoice = localStorage.getItem("gift_wrap_choice") === "true";
+            const wrapCheckbox = document.getElementById("checkout-wrap-checkbox");
+            if (wrapCheckbox) {
+                wrapCheckbox.checked = savedWrapChoice;
+            }
+            
+            calculateTotals();
+        }
+
+        let couponApplied = false;
+        let discountAmount = 0;
+
+        function calculateTotals() {
+            const cart = getCart();
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            
+            // Luxury wrap check
+            const wrapCheckbox = document.getElementById("checkout-wrap-checkbox");
+            const wrapCost = (wrapCheckbox && wrapCheckbox.checked && subtotal > 0) ? 150 : 0;
+            
+            // Shipping calculation
+            let shipping = 99;
+            const standardShippingRadio = document.querySelector('input[name="shipping"]');
+            const isExpress = !standardShippingRadio || !standardShippingRadio.checked;
+            
+            if (subtotal === 0) {
+                shipping = 0;
+            } else if (isExpress) {
+                shipping = 250;
+            } else {
+                shipping = subtotal >= 2000 ? 0 : 99;
+            }
+            
+            // Coupon Discount (FESTIVE20 gives 20% off subtotal)
+            discountAmount = couponApplied ? Math.round(subtotal * 0.2) : 0;
+            
+            const total = subtotal + wrapCost + shipping - discountAmount;
+            
+            document.getElementById("checkout-subtotal").textContent = `₹${subtotal.toLocaleString("en-IN")}`;
+            document.getElementById("checkout-wrap").textContent = `₹${wrapCost.toLocaleString("en-IN")}`;
+            document.getElementById("checkout-shipping").textContent = shipping === 0 && subtotal > 0 ? "FREE" : `₹${shipping}`;
+            document.getElementById("checkout-discount").textContent = `-₹${discountAmount.toLocaleString("en-IN")}`;
+            document.getElementById("checkout-total").textContent = `₹${total.toLocaleString("en-IN")}`;
+            
+            // Update the Pay button text
+            const payBtn = document.querySelector('button[onclick="showSuccess()"]');
+            if (payBtn) {
+                payBtn.innerHTML = `PAY ₹${total.toLocaleString("en-IN")} <span class="material-symbols-outlined ml-2">lock</span>`;
+                // Remove onclick to handle submission in JavaScript
+                payBtn.removeAttribute("onclick");
+                payBtn.id = "place-order-btn";
+            }
+        }
+
+        // Apply coupon code
+        const couponBtn = document.getElementById("apply-coupon-btn");
+        if (couponBtn) {
+            couponBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const code = document.getElementById("coupon-input").value.trim().toUpperCase();
+                if (code === "FESTIVE20") {
+                    couponApplied = true;
+                    showToast("Coupon FESTIVE20 applied! 20% discount added.");
+                    calculateTotals();
+                } else if (code === "") {
+                    showToast("Please enter a coupon code.");
+                } else {
+                    showToast("Invalid coupon code.");
+                }
+            });
+        }
+
+        // Handle Wrap Checkbox change
+        const wrapCheckbox = document.getElementById("checkout-wrap-checkbox");
+        if (wrapCheckbox) {
+            wrapCheckbox.addEventListener("change", calculateTotals);
+        }
+
+        // Handle Shipping radio changes
+        document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+            radio.addEventListener("change", calculateTotals);
+        });
+
+        // Place Order submission logic
+        document.addEventListener("click", (e) => {
+            if (e.target && e.target.closest("#place-order-btn")) {
+                e.preventDefault();
+                
+                // Form validation for payment card details
+                const cardNumber = document.querySelector('input[placeholder="0000 0000 0000 0000"]').value.trim();
+                const expiry = document.querySelector('input[placeholder="MM/YY"]').value.trim();
+                const cvv = document.querySelector('input[placeholder="***"]').value.trim();
+                
+                if (!cardNumber || !expiry || !cvv) {
+                    showToast("Please enter your card payment details.");
+                    return;
+                }
+                
+                simulatePayment();
+            }
+        });
+
+        function simulatePayment() {
+            const payBtn = document.getElementById("place-order-btn");
+            if (!payBtn) return;
+            
+            // Show loading spinner
+            payBtn.disabled = true;
+            payBtn.style.cursor = "not-allowed";
+            payBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                PROCESSING SECURE PAYMENT...
+            `;
+            
+            setTimeout(() => {
+                showSuccess();
+            }, 1800);
+        }
+
+        function showSuccess() {
+            const cart = getCart();
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const addressInfo = JSON.parse(localStorage.getItem("temp_shipping_address") || "{}");
+            
+            // Generate unique Order ID
+            generatedOrderId = "RA-" + Math.floor(100000 + Math.random() * 900000) + "-L";
+            
+            // Save order to history in localStorage
+            const orders = JSON.parse(localStorage.getItem("rakhi_orders") || "[]");
+            const newOrder = {
+                id: generatedOrderId,
+                date: new Date().toLocaleDateString("en-IN", { day: 'numeric', month: 'short', year: 'numeric' }),
+                items: cart,
+                address: addressInfo,
+                subtotal: subtotal,
+                total: document.getElementById("checkout-total").textContent,
+                status: "Order Confirmed"
+            };
+            orders.push(newOrder);
+            localStorage.setItem("rakhi_orders", JSON.stringify(orders));
+            
+            // Clear current cart
+            saveCart([]);
+            
+            // Show success overlay
+            const overlay = document.getElementById('success-overlay');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            
+            // Update order info in the success screen
+            const headingPara = overlay.querySelector("p.font-body-lg");
+            if (headingPara && addressInfo.name) {
+                headingPara.innerHTML = `Thank you, <strong>${addressInfo.name}</strong>. Your celebration is on its way. We've sent a confirmation email to <strong>${addressInfo.email || 'arjun@example.com'}</strong>.`;
+            }
+            
+            const orderIdText = overlay.querySelector("p.font-semibold.mt-2");
+            if (orderIdText) {
+                orderIdText.textContent = `Order ID: #${generatedOrderId}`;
+            }
+            
+            // Bind Track Order button on success screen
+            const trackBtn = overlay.querySelector("button.bg-primary");
+            if (trackBtn) {
+                trackBtn.setAttribute("onclick", `window.location.href='track-order.html?orderId=${generatedOrderId}'`);
+            }
+            
+            triggerConfetti();
+        }
+
+        function triggerConfetti() {
+            const colors = ['#a20513', '#7a5900', '#fdbc13', '#d4af37'];
+            const container = document.getElementById('confetti-anchor');
+            if (!container) return;
+            
+            for (let i = 0; i < 120; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = Math.random() * 8 + 4 + 'px';
+                confetti.style.height = Math.random() * 8 + 4 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.top = '-10%';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                container.appendChild(confetti);
+
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 1.5;
+
+                confetti.animate([
+                    { transform: `translate3d(0, 0, 0) rotate(0deg)`, top: '-10%', opacity: 1 },
+                    { transform: `translate3d(${Math.random() * 120 - 60}px, 100vh, 0) rotate(${Math.random() * 1000}deg)`, top: '100%', opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    delay: delay * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    fill: 'forwards'
+                });
+
+                setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+            }
+        }
+
+        // On Load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCheckoutSummary();
+            
+            // Prefill address form if user is logged in
+            const currentUser = getCurrentUser();
+            if (currentUser) {
+                const emailInput = document.querySelector('input[placeholder="arjun@example.com"]');
+                if (emailInput) emailInput.value = currentUser;
+            }
+        });
+    </script>
+
+
+</body></html>
