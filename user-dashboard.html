@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet">
 <!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -134,7 +133,8 @@
             box-shadow: 0 25px 40px -15px rgba(31, 31, 31, 0.1);
         }
     </style>
-<script src="shared.js"></script>
+<script type="module" src="/shared.js"></script>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body class="bg-surface font-body-md text-on-surface selection:bg-primary/10">
 <!-- TopNavBar -->
@@ -446,7 +446,7 @@
 <!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="firebase-auth.js"></script>
+<script type="module" src="/firebase-auth.js"></script>
 
 <!-- Interactive Scripts -->
 <script>
